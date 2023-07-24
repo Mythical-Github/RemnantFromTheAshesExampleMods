@@ -34,7 +34,7 @@ function Summon()
     Location = PlayerPawn.RootComponent:K2_GetComponentLocation()
     PlayerPawnLocationRot = PlayerPawn.RootComponent:K2_GetComponentRotation()
     local Rotation = {0.0, 0.0, 0.0}
-    local ThingToSpawn = StaticFindObject("/Game/AI_System/Examples/Enemies/BP_NPC_FatMutant_C")
+    local ThingToSpawn = StaticFindObject("Class.Class_C")
 
     if ThingToSpawn:IsValid() then
         print("Thing To Spawn Was Valid")
@@ -44,7 +44,7 @@ function Summon()
 
     WORLD:SpawnActor(ThingToSpawn, Location, Rotation)
     
-    SummonedThing = FindFirstOf("BP_NPC_FatMutant_C")
+    SummonedThing = FindFirstOf("Class_C")
     if SummonedThing:IsValid() then
         print("Summoned Thing Was Valid")
     else
@@ -54,9 +54,5 @@ end
 
 
 RegisterKeyBind(Key.L, function()
-	CheckPlayerController()
-    CheckWorld()
-    ExecuteInGameThread(function()
-        Summon()
-    end)
+	print("testing lua mod example text")
 end)
